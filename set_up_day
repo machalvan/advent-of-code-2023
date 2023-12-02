@@ -12,4 +12,4 @@ else
 fi
 
 cp -r dayTemplate $DAY
-aocdl -force -output $DAY/input.txt -year 2023 -day $1 
+aocdl -wait -force -output $DAY/input.txt -year 2023 -day $1 
