@@ -86,6 +86,29 @@ Array.prototype.count = function (value) {
   return this.filter(item => item === value).length
 }
 
+Array.prototype.forEachSurrounding = function (i, j, callback) {
+  Array(-1, 0, 1).map(x => {
+    Array(-1, 0, 1).map(y => {
+      if (x === 0 && y === 0) return
+      if (this[i + x]?.[j + y] === undefined) return
+
+      callback(this[i + x][j + y], i + x, j + y)
+    })
+  })
+}
+
+Array.prototype.forEachAdjacent = function (i, j, callback) {
+  Array(-1, 0, 1).map(x => {
+    Array(-1, 0, 1).map(y => {
+      if (x === 0 && y === 0) return
+      if (this[i + x]?.[j + y] === undefined) return
+      if (Math.abs(x) + Math.abs(y) !== 1) return
+
+      callback(this[i + x][j + y], i + x, j + y)
+    })
+  })
+}
+
 Array.prototype.getPermutations = function () {
   // Heap's algorithm
   //
@@ -137,8 +160,12 @@ String.prototype.isUpperCase = function () {
   return this === this.toUpperCase()
 }
 
-String.prototype.getDigits = function () {
+String.prototype.getNums = function () {
   return this.match(/-?\d+/g).toNums()
+}
+
+String.prototype.isNum = function () {
+  return !isNaN(this)
 }
 
 String.prototype.toBin = function () {
