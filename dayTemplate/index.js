@@ -1,9 +1,7 @@
 require('../utils')()
 
-const parse = input => input
-
 const part1 = input => {
-  return parse(input)
+  return input
 }
 
 const part2 = input => {
