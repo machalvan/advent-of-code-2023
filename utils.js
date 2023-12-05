@@ -1,12 +1,23 @@
 // Functions
 
 module.exports = function () {
-  this.range = (start, end, step = 1) => {
+  this.createGrid = (width, height, cell = 0) => {
+    return Array(height)
+      .fill()
+      .map(() => Array(width).fill(cell))
+  }
+
+  this.createRange = (start, end, step = 1) => {
+    // [start, end)
+    //
+    // Example usage:
+    // createRange(1, 5) // [1, 2, 3, 4]
+
     return start <= end
-      ? [...Array(Math.floor((end - start) / step) + 1).keys()].map(
+      ? [...Array(Math.floor((end - 1 - start) / step) + 1).keys()].map(
           num => num * step + start
         )
-      : [...Array(Math.floor((start - end) / step) + 1).keys()].map(
+      : [...Array(Math.floor((start - end - 1) / step) + 1).keys()].map(
           num => -num * step + start
         )
   }
@@ -15,12 +26,6 @@ module.exports = function () {
     for (let i = 0; i < times; i++) {
       callback(i)
     }
-  }
-
-  this.createGrid = (width, height, cell = 0) => {
-    return Array(height)
-      .fill()
-      .map(() => Array(width).fill(cell))
   }
 
   this.manhattan = (x1, y1, x2, y2) => {
