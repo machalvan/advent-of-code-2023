@@ -91,6 +91,13 @@ Array.prototype.count = function (value) {
   return this.filter(item => item === value).length
 }
 
+Array.prototype.countAll = function () {
+  return this.reduce((acc, cur) => {
+    acc[cur] = (acc[cur] ?? 0) + 1
+    return acc
+  }, {})
+}
+
 Array.prototype.forEachSurrounding = function (i, j, callback) {
   Array(-1, 0, 1).map(x => {
     Array(-1, 0, 1).map(y => {
