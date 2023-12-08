@@ -98,6 +98,17 @@ Array.prototype.countAll = function () {
   }, {})
 }
 
+Array.prototype.gcd = function () {
+  const gcd = (a, b) => (b == 0 ? a : gcd(b, a % b))
+  return this.reduce(gcd, 0)
+}
+
+Array.prototype.lcm = function () {
+  const gcd = (a, b) => (b == 0 ? a : gcd(b, a % b))
+  const lcm = (a, b) => (a / gcd(a, b)) * b
+  return this.reduce(lcm, 1)
+}
+
 Array.prototype.forEachSurrounding = function (i, j, callback) {
   Array(-1, 0, 1).map(x => {
     Array(-1, 0, 1).map(y => {
