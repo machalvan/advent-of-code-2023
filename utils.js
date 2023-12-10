@@ -109,27 +109,53 @@ Array.prototype.lcm = function () {
   return this.reduce(lcm, 1)
 }
 
-Array.prototype.forEachSurrounding = function (i, j, callback) {
-  Array(-1, 0, 1).map(x => {
-    Array(-1, 0, 1).map(y => {
-      if (x === 0 && y === 0) return
-      if (this[i + x]?.[j + y] === undefined) return
+Array.prototype.forEachSurrounding = function (x, y, callback) {
+  for (const dy of [-1, 0, 1]) {
+    for (const dx of [-1, 0, 1]) {
+      if (dx === 0 && dy === 0) continue
+      if (this[y + dy]?.[x + dx] === undefined) continue
 
-      callback(this[i + x][j + y], i + x, j + y)
-    })
-  })
+      callback({
+        x: x + dx,
+        y: y + dy,
+        pos: [x + dx, y + dy],
+        cell: this[y + dy][x + dx],
+        dir: {
+          '-1,-1': 'NW',
+          '0,-1': 'N',
+          '1,-1': 'NE',
+          '-1,0': 'W',
+          '1,0': 'E',
+          '-1,1': 'SW',
+          '0,1': 'S',
+          '1,1': 'SE'
+        }[[dx, dy]]
+      })
+    }
+  }
 }
 
-Array.prototype.forEachAdjacent = function (i, j, callback) {
-  Array(-1, 0, 1).map(x => {
-    Array(-1, 0, 1).map(y => {
-      if (x === 0 && y === 0) return
-      if (this[i + x]?.[j + y] === undefined) return
-      if (Math.abs(x) + Math.abs(y) !== 1) return
+Array.prototype.forEachAdjacent = function (x, y, callback) {
+  for (const dy of [-1, 0, 1]) {
+    for (const dx of [-1, 0, 1]) {
+      if (dx === 0 && dy === 0) continue
+      if (this[y + dy]?.[x + dx] === undefined) continue
+      if (Math.abs(dx) + Math.abs(dy) !== 1) continue
 
-      callback(this[i + x][j + y], i + x, j + y)
-    })
-  })
+      callback({
+        x: x + dx,
+        y: y + dy,
+        pos: [x + dx, y + dy],
+        cell: this[y + dy][x + dx],
+        dir: {
+          '0,-1': 'N',
+          '-1,0': 'W',
+          '1,0': 'E',
+          '0,1': 'S'
+        }[[dx, dy]]
+      })
+    }
+  }
 }
 
 Array.prototype.getPermutations = function () {

@@ -14,7 +14,7 @@ const part1 = input => {
       if (cell.isNum()) {
         num += cell
 
-        grid.forEachSurrounding(i, j, char => {
+        grid.forEachSurrounding(j, i, ({ cell: char }) => {
           if (char !== undefined && isNaN(char) && char !== '.') {
             isPart = true
           }
@@ -47,7 +47,7 @@ const part2 = input => {
       if (!isNaN(cell)) {
         num += cell
 
-        grid.forEachSurrounding(i, j, (char, x, y) => {
+        grid.forEachSurrounding(j, i, ({ cell: char, x, y }) => {
           if (char === '*') {
             starPos = [x, y]
           }
