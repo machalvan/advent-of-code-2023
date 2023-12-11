@@ -84,7 +84,13 @@ Array.prototype.isSupersetOf = function (arr) {
 }
 
 Array.prototype.transpose = function () {
-  return this[0].map((_, colIndex) => this.map(row => row[colIndex]))
+  return this[0].map((_, i) => this.map(row => row[i]))
+}
+
+Array.prototype.rotate = function (times = 1) {
+  if (times === 0) return this
+  const rotated = this[0].map((_, i) => this.map(row => row[i]).reverse())
+  return rotated.rotate(times.mod(4) - 1)
 }
 
 Array.prototype.count = function (value) {
