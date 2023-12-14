@@ -51,6 +51,16 @@ Array.prototype.prod = function () {
   return this.reduce((a, b) => a * b, 1)
 }
 
+Array.prototype.equals = function (arr) {
+  if (this.length !== arr.length) return false
+
+  for (let i = 0; i < this.length; i++) {
+    if (this[i] !== arr[i]) return false
+  }
+
+  return true
+}
+
 Array.prototype.sortAsc = function () {
   return this.sort((a, b) =>
     typeof a === 'string' ? a.localeCompare(b) : a - b
