@@ -1,3 +1,4 @@
+'use strict'
 require('../utils')()
 
 const part1 = input => {
