@@ -137,14 +137,14 @@ Array.prototype.forEachSurrounding = function (x, y, callback) {
         pos: [x + dx, y + dy],
         cell: this[y + dy][x + dx],
         dir: {
-          '-1,-1': 'NW',
-          '0,-1': 'N',
-          '1,-1': 'NE',
-          '-1,0': 'W',
-          '1,0': 'E',
-          '-1,1': 'SW',
-          '0,1': 'S',
-          '1,1': 'SE'
+          '0,-1': 0,
+          '1,0': 1,
+          '0,1': 2,
+          '-1,0': 3,
+          '1,-1': 4,
+          '1,1': 5,
+          '-1,1': 6,
+          '-1,-1': 7
         }[[dx, dy]]
       })
     }
@@ -163,12 +163,7 @@ Array.prototype.forEachAdjacent = function (x, y, callback) {
         y: y + dy,
         pos: [x + dx, y + dy],
         cell: this[y + dy][x + dx],
-        dir: {
-          '0,-1': 'N',
-          '-1,0': 'W',
-          '1,0': 'E',
-          '0,1': 'S'
-        }[[dx, dy]]
+        dir: { '0,-1': 0, '1,0': 1, '0,1': 2, '-1,0': 3 }[[dx, dy]]
       })
     }
   }

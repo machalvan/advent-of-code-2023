@@ -53,10 +53,10 @@ const part1 = input => {
   let dir
   grid.forEachAdjacent(S[0], S[1], ({ cell, dir: fromDir }) => {
     if (dir !== undefined) return
-    if (fromDir === 'N' && ['|', '7', 'F'].includes(cell)) dir = 0
-    if (fromDir === 'E' && ['-', 'J', '7'].includes(cell)) dir = 1
-    if (fromDir === 'S' && ['|', 'J', 'L'].includes(cell)) dir = 2
-    if (fromDir === 'W' && ['-', 'L', 'F'].includes(cell)) dir = 3
+    if (fromDir === 0 && ['|', '7', 'F'].includes(cell)) dir = 0
+    if (fromDir === 1 && ['-', 'J', '7'].includes(cell)) dir = 1
+    if (fromDir === 2 && ['|', 'J', 'L'].includes(cell)) dir = 2
+    if (fromDir === 3 && ['-', 'L', 'F'].includes(cell)) dir = 3
   })
 
   return next(grid, S, dir).length / 2
@@ -112,10 +112,10 @@ const part2 = input => {
 
   let adjPipes = []
   grid.forEachAdjacent(S[0], S[1], ({ cell, dir: fromDir }) => {
-    if (fromDir === 'N' && ['|', '7', 'F'].includes(cell)) adjPipes.push(0)
-    if (fromDir === 'E' && ['-', 'J', '7'].includes(cell)) adjPipes.push(1)
-    if (fromDir === 'S' && ['|', 'J', 'L'].includes(cell)) adjPipes.push(2)
-    if (fromDir === 'W' && ['-', 'L', 'F'].includes(cell)) adjPipes.push(3)
+    if (fromDir === 0 && ['|', '7', 'F'].includes(cell)) adjPipes.push(0)
+    if (fromDir === 1 && ['-', 'J', '7'].includes(cell)) adjPipes.push(1)
+    if (fromDir === 2 && ['|', 'J', 'L'].includes(cell)) adjPipes.push(2)
+    if (fromDir === 3 && ['-', 'L', 'F'].includes(cell)) adjPipes.push(3)
   })
 
   let res = next(grid, S, adjPipes[0])
