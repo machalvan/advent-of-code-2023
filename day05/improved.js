@@ -1,6 +1,6 @@
-require('../utils')()
+import { loop } from '../utils.js'
 
-const part1 = input => {
+export const part1 = input => {
   let [seeds, ...maps] = input.toBlocks()
   seeds = seeds[0].getNums()
   maps = maps.map(map =>
@@ -22,7 +22,7 @@ const part1 = input => {
     .min()
 }
 
-const part2 = input => {
+export const part2 = input => {
   let [seeds, ...maps] = input.toBlocks()
   seeds = seeds[0].getNums()
   let [a, b, c, d, e, f, g] = maps
@@ -59,5 +59,3 @@ const part2 = input => {
 
   return counter
 }
-
-module.exports = { part1, part2 }

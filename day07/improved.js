@@ -1,6 +1,6 @@
-require('../utils')()
+import '../utils.js'
 
-const part1 = input => {
+export const part1 = input => {
   return input
     .toLines()
     .map(line => line.split(' '))
@@ -38,7 +38,7 @@ const part1 = input => {
     .reduce((acc, [_, bid], i) => acc + bid * (i + 1), 0)
 }
 
-const part2 = input => {
+export const part2 = input => {
   return input
     .toLines()
     .map(line => line.split(' '))
@@ -79,5 +79,3 @@ const part2 = input => {
     })
     .reduce((acc, [_, bid], i) => acc + bid * (i + 1), 0)
 }
-
-module.exports = { part1, part2 }

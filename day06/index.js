@@ -1,6 +1,6 @@
-require('../utils')()
+import '../utils.js'
 
-const part1 = input => {
+export const part1 = input => {
   let [times, dists] = input.toLines().map(line => line.getNums())
 
   return times
@@ -16,7 +16,7 @@ const part1 = input => {
     .prod()
 }
 
-const part2 = input => {
+export const part2 = input => {
   let [times, dists] = input
     .toLines()
     .map(line => line.replace(/ /g, '').getNums())
@@ -33,5 +33,3 @@ const part2 = input => {
     })
     .prod()
 }
-
-module.exports = { part1, part2 }

@@ -1,6 +1,6 @@
-require('../utils')()
+import '../utils.js'
 
-const part1 = input => {
+export const part1 = input => {
   return input
     .toLines()
     .map(line =>
@@ -12,7 +12,7 @@ const part1 = input => {
     .sum()
 }
 
-const part2 = input => {
+export const part2 = input => {
   return input
     .toLines()
     .map(line =>
@@ -52,5 +52,3 @@ const part2 = input => {
     )
     .sum()
 }
-
-module.exports = { part1, part2 }

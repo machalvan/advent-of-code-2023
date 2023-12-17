@@ -1,6 +1,6 @@
-require('../utils')()
+import '../utils.js'
 
-const part1 = input => {
+export const part1 = input => {
   let [dirs, graph] = input.toBlocks()
   dirs = dirs[0].split('')
   graph = graph
@@ -23,7 +23,7 @@ const part1 = input => {
   return steps
 }
 
-const part2 = input => {
+export const part2 = input => {
   let [dirs, graph] = input.toBlocks()
   dirs = dirs[0].split('')
   graph = graph
@@ -55,5 +55,3 @@ const part2 = input => {
 
   return Object.values(stepsToEnd).lcm()
 }
-
-module.exports = { part1, part2 }

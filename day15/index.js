@@ -1,4 +1,4 @@
-require('../utils')()
+import '../utils.js'
 
 let hash = str => {
   let val = 0
@@ -14,7 +14,7 @@ let hash = str => {
   return val
 }
 
-const part1 = input => {
+export const part1 = input => {
   let sum = 0
 
   for (let step of input.split(',')) {
@@ -24,7 +24,7 @@ const part1 = input => {
   return sum
 }
 
-const part2 = input => {
+export const part2 = input => {
   let lenses = {}
   let boxes = {}
   let lensToBox = {}
@@ -62,5 +62,3 @@ const part2 = input => {
 
   return sum
 }
-
-module.exports = { part1, part2 }

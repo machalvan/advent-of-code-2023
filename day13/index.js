@@ -1,4 +1,4 @@
-require('../utils')()
+import '../utils.js'
 
 const getDiff = (a, b) => {
   if (a === undefined || b === undefined) return 999
@@ -11,7 +11,7 @@ const getDiff = (a, b) => {
   return diff
 }
 
-const part1 = input => {
+export const part1 = input => {
   let blocks = input.toBlocks()
 
   let res = 0
@@ -57,7 +57,7 @@ const part1 = input => {
   return res
 }
 
-const part2 = input => {
+export const part2 = input => {
   let blocks = input.toBlocks()
 
   let res = 0
@@ -107,5 +107,3 @@ const part2 = input => {
 
   return res
 }
-
-module.exports = { part1, part2 }

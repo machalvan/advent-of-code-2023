@@ -1,4 +1,4 @@
-require('../utils')()
+import '../utils.js'
 
 let hash = str => {
   return str
@@ -6,11 +6,11 @@ let hash = str => {
     .reduce((val, char) => ((val + char.charCodeAt(0)) * 17) % 256, 0)
 }
 
-const part1 = input => {
+export const part1 = input => {
   return input.split(',').map(hash).sum()
 }
 
-const part2 = input => {
+export const part2 = input => {
   let [lenses, boxes, lensToBox] = input.split(',').reduce(
     ([lenses, boxes, lensToBox], step) => {
       let [lens, focal] = step.split(/=|-/)
@@ -43,5 +43,3 @@ const part2 = input => {
     })
     .sum()
 }
-
-module.exports = { part1, part2 }

@@ -1,6 +1,6 @@
-require('../utils')()
+import '../utils.js'
 
-const part1 = input => {
+export const part1 = input => {
   let grid = input.toGrid()
   let E = {}
 
@@ -43,7 +43,7 @@ const part1 = input => {
   return Object.values(E).length
 }
 
-const part2 = input => {
+export const part2 = input => {
   let grid = input.toGrid()
 
   let score = (r, c, dir) => {
@@ -100,5 +100,3 @@ const part2 = input => {
 
   return max
 }
-
-module.exports = { part1, part2 }

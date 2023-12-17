@@ -1,6 +1,6 @@
-require('../utils')()
+import { manhattan } from '../utils.js'
 
-const part1 = input => {
+export const part1 = input => {
   let galaxy = input.toGrid()
   let emptyRows = galaxy
     .map((_, i) => i)
@@ -38,7 +38,7 @@ const part1 = input => {
   return res
 }
 
-const part2 = input => {
+export const part2 = input => {
   let galaxy = input.toGrid()
   let emptyRows = galaxy
     .map((_, i) => i)
@@ -75,5 +75,3 @@ const part2 = input => {
 
   return res
 }
-
-module.exports = { part1, part2 }

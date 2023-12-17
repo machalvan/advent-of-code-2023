@@ -1,6 +1,6 @@
-require('../utils')()
+import { loop } from '../utils.js'
 
-const part1 = input => {
+export const part1 = input => {
   let grid = input.toGrid()
 
   let res = 0
@@ -23,7 +23,7 @@ const part1 = input => {
   return res
 }
 
-const part2 = input => {
+export const part2 = input => {
   let grid = input.toGrid()
 
   let pattern = []
@@ -68,5 +68,3 @@ const part2 = input => {
 
   return pattern[(1_000_000_000 - 1 - cycle - 1) % pattern.length]
 }
-
-module.exports = { part1, part2 }

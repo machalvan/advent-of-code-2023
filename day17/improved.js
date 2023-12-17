@@ -1,4 +1,4 @@
-require('../utils')()
+import '../utils.js'
 
 const getAllAllowedPaths = (graph, r, c, endR, endC, part1 = true) => {
   let pq = [[0, r, c, -1, 0]]
@@ -38,7 +38,7 @@ const getAllAllowedPaths = (graph, r, c, endR, endC, part1 = true) => {
   return memo
 }
 
-const part1 = input => {
+export const part1 = input => {
   let grid = input.toGrid()
 
   let graph = {}
@@ -67,7 +67,7 @@ const part1 = input => {
   return res
 }
 
-const part2 = input => {
+export const part2 = input => {
   let grid = input.toGrid()
   let graph = {}
 
@@ -95,5 +95,3 @@ const part2 = input => {
 
   return res
 }
-
-module.exports = { part1, part2 }

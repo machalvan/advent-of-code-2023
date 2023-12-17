@@ -1,4 +1,4 @@
-require('../utils')()
+require('../utils').default()
 
 const next = (grid, cur, fromDir, path = []) => {
   let [x, y] = cur
@@ -34,7 +34,7 @@ const next = (grid, cur, fromDir, path = []) => {
   return next(grid, [nx, ny], dir, path.concat([cur]))
 }
 
-const part1 = input => {
+export const part1 = input => {
   let grid = input.toGrid()
 
   let S
@@ -94,7 +94,7 @@ const checkIfOutside = (grid, cur, loop) => {
   }
 }
 
-const part2 = input => {
+export const part2 = input => {
   let grid = input.toGrid()
 
   let S
@@ -146,5 +146,3 @@ const part2 = input => {
 
   return inside
 }
-
-module.exports = { part1, part2 }

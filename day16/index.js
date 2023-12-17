@@ -1,4 +1,4 @@
-require('../utils')()
+import '../utils.js'
 
 let E = {}
 
@@ -93,7 +93,7 @@ const next = (grid, r, c, dir) => {
   }
 }
 
-const part1 = input => {
+export const part1 = input => {
   let grid = input.toGrid()
 
   next(grid, 0, 0, 1)
@@ -101,7 +101,7 @@ const part1 = input => {
   return Object.values(E).length
 }
 
-const part2 = input => {
+export const part2 = input => {
   let grid = input.toGrid()
 
   let max = 0
@@ -143,5 +143,3 @@ const part2 = input => {
 
   return max
 }
-
-module.exports = { part1, part2 }

@@ -1,4 +1,4 @@
-require('../utils')()
+import '../utils.js'
 
 const findTile = (grid, tile) => {
   for (let i = 0; i < grid.length; i++) {
@@ -28,7 +28,7 @@ const getPipes = (grid, x, y, dir, pipes = []) => {
   return getPipes(grid, nx, ny, nextDir, [...pipes, [x, y]])
 }
 
-const part1 = input => {
+export const part1 = input => {
   let grid = input.toGrid()
   let [sx, sy] = findTile(grid, 'S')
 
@@ -47,7 +47,7 @@ const part1 = input => {
   return getPipes(grid, sx, sy, startDir).length / 2
 }
 
-const part2 = input => {
+export const part2 = input => {
   let grid = input.toGrid()
   let [sx, sy] = findTile(grid, 'S')
 
@@ -100,5 +100,3 @@ const part2 = input => {
 
   return Object.values(isInside).sum()
 }
-
-module.exports = { part1, part2 }

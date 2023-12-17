@@ -1,4 +1,4 @@
-require('../utils')()
+import '../utils.js'
 
 const parse = input =>
   input.toLines().map(line => {
@@ -10,7 +10,7 @@ const parse = input =>
     )
   })
 
-const part1 = input => {
+export const part1 = input => {
   let res = 0
 
   parse(input).forEach((line, i) => {
@@ -38,7 +38,7 @@ const part1 = input => {
   return res
 }
 
-const part2 = input => {
+export const part2 = input => {
   let res = 0
 
   parse(input).forEach(line => {
@@ -68,5 +68,3 @@ const part2 = input => {
 
   return res
 }
-
-module.exports = { part1, part2 }

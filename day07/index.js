@@ -1,4 +1,4 @@
-require('../utils')()
+import '../utils.js'
 
 const compStrength = (a, b, JIsLow = false) => {
   if (a.length === 0) return 0
@@ -16,7 +16,7 @@ const compStrength = (a, b, JIsLow = false) => {
     : compStrength([a[0].slice(1), a[1]], [b[0].slice(1), b[1]], JIsLow)
 }
 
-const part1 = input => {
+export const part1 = input => {
   let cards = {
     high: [],
     one: [],
@@ -64,7 +64,7 @@ const part1 = input => {
   return orderedHands.reduce((acc, [_, bid], i) => acc + (i + 1) * bid, 0)
 }
 
-const part2 = input => {
+export const part2 = input => {
   let cards = {
     high: [],
     one: [],
@@ -117,5 +117,3 @@ const part2 = input => {
 
   return orderedHands.reduce((acc, [_, bid], i) => acc + (i + 1) * bid, 0)
 }
-
-module.exports = { part1, part2 }

@@ -1,6 +1,6 @@
-require('../utils')()
+import '../utils.js'
 
-const part1 = input => {
+export const part1 = input => {
   const extrapolate = nums => {
     let newNums = nums.map((n, i) => (i ? n - nums[i - 1] : n)).slice(1)
     return newNums.some(n => n) ? nums.pop() + extrapolate(newNums) : nums.pop()
@@ -12,7 +12,7 @@ const part1 = input => {
     .sum()
 }
 
-const part2 = input => {
+export const part2 = input => {
   const extrapolate = nums => {
     let newNums = nums.map((n, i) => (i ? nums[i - 1] - n : n)).slice(1)
     return newNums.some(n => n) ? nums.pop() - extrapolate(newNums) : nums.pop()
@@ -23,5 +23,3 @@ const part2 = input => {
     .map(line => extrapolate(line.getNums().reverse()))
     .sum()
 }
-
-module.exports = { part1, part2 }

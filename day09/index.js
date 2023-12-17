@@ -1,6 +1,6 @@
-require('../utils')()
+import '../utils.js'
 
-const part1 = input => {
+export const part1 = input => {
   const extrapolate = nums => {
     let newNums = nums.reduce((acc, cur, i) => {
       let newNum = nums[i + 1] - cur
@@ -25,7 +25,7 @@ const part1 = input => {
     .sum()
 }
 
-const part2 = input => {
+export const part2 = input => {
   const extrapolate = nums => {
     let newNums = nums.reduce((acc, cur, i) => {
       let newNum = cur - nums[i + 1]
@@ -49,5 +49,3 @@ const part2 = input => {
     })
     .sum()
 }
-
-module.exports = { part1, part2 }

@@ -1,36 +1,34 @@
 // Functions
 
-module.exports = function () {
-  this.createGrid = (width, height, cell = 0) => {
-    return Array(height)
-      .fill()
-      .map(() => Array(width).fill(cell))
-  }
+export function createGrid(width, height, cell = 0) {
+  return Array(height)
+    .fill()
+    .map(() => Array(width).fill(cell))
+}
 
-  this.createRange = (start, end, step = 1) => {
-    // [start, end)
-    //
-    // Example usage:
-    // createRange(1, 5) // [1, 2, 3, 4]
+export function createRange(start, end, step = 1) {
+  // [start, end)
+  //
+  // Example usage:
+  // createRange(1, 5) // [1, 2, 3, 4]
 
-    return start <= end
-      ? [...Array(Math.floor((end - 1 - start) / step) + 1).keys()].map(
-          num => num * step + start
-        )
-      : [...Array(Math.floor((start - end - 1) / step) + 1).keys()].map(
-          num => -num * step + start
-        )
-  }
+  return start <= end
+    ? [...Array(Math.floor((end - 1 - start) / step) + 1).keys()].map(
+        num => num * step + start
+      )
+    : [...Array(Math.floor((start - end - 1) / step) + 1).keys()].map(
+        num => -num * step + start
+      )
+}
 
-  this.loop = (times, callback) => {
-    for (let i = 0; i < times; i++) {
-      callback(i)
-    }
+export function loop(times, callback) {
+  for (let i = 0; i < times; i++) {
+    callback(i)
   }
+}
 
-  this.manhattan = (x1, y1, x2, y2) => {
-    return Math.abs(x1 - x2) + Math.abs(y1 - y2)
-  }
+export function manhattan(x1, y1, x2, y2) {
+  return Math.abs(x1 - x2) + Math.abs(y1 - y2)
 }
 
 // Array

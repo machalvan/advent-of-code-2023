@@ -1,4 +1,4 @@
-require('../utils')()
+import '../utils.js'
 
 const getDiff = (a, b) => {
   return a !== undefined && b !== undefined
@@ -6,7 +6,7 @@ const getDiff = (a, b) => {
     : Infinity
 }
 
-const part1 = input => {
+export const part1 = input => {
   return input.toBlocks().reduce(
     (sum, block) =>
       sum +
@@ -40,7 +40,7 @@ const part1 = input => {
   )
 }
 
-const part2 = input => {
+export const part2 = input => {
   return input.toBlocks().reduce(
     (sum, block) =>
       sum +
@@ -87,5 +87,3 @@ const part2 = input => {
     0
   )
 }
-
-module.exports = { part1, part2 }
